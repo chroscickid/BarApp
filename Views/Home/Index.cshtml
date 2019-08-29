@@ -1,0 +1,32 @@
+@model IEnumerable<BrApp.Models.Drink>
+
+
+@{
+    ViewBag.Title = "Drink Menu";
+}
+
+<h2>Drink Menu</h2>
+
+
+
+@foreach (var p in Model)
+{
+    <div class="well well-sm">
+        <h3>
+            <h3>@p.Name</h3>
+            <span>@p.Price.ToString("c") | @p.Description</span>
+        </h3>
+        
+
+        <div class="pull-right">
+            <span class="btn btn-sm btn-default">@Html.ActionLink("Order drink", "Order", "Home", p, null)</span>
+        </div>    
+    
+        
+       
+    </div>
+
+}
+
+
+
