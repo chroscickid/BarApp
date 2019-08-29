@@ -1,0 +1,44 @@
+﻿@*This View made using List as template (MVC generates this table code)*@
+
+@model IEnumerable<BrApp.Models.Drink>
+
+@{
+    ViewBag.Title = "ViewPrepared";
+}
+
+<h2>Prepared Drinks</h2>
+
+
+@*This View Displays all of the drinks on the ready List, pulling table header and data from the model*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @item.Name
+        </td>
+        <td>
+            @item.Description
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Serve", "Served", item) 
+        </td>
+    </tr>
+}
+
+</table>
